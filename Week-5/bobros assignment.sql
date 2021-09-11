@@ -51,16 +51,18 @@ CREATE TABLE mountainThings AS (SELECT *
 
 SELECT * FROM mountainThings;
 
-ALTER TABLE mountainThings
-DROP apple_frame, DROP aurora_borealis,  DROP barn, DROP boat;
+ALTER TABLE mountainThings DROP column episode;
+ALTER TABLE mountainThings DROP column beach;
+ALTER TABLE mountainThings DROP column bridge;
+ALTER TABLE mountainThings DROP column CIRCLE_FRAME;
 
 DROP TABLE lakes;
 
-SELECT * FROM mountainThings MT JOIN mountains MS ON MT.title = MS.title ORDER BY MT.episode;
+SELECT * FROM mountainThings MT JOIN mountains MS ON MT.title = MS.title ORDER BY MT.building;
 
 SELECT * FROM mountainThings MT JOIN mountains MS ON MT.title = MS.title 
-								JOIN lakes ON lakes.title = MT.title
-                                ORDER BY MT.episode;     
+								JOIN lakes ON cabin.title = MT.title
+                                ORDER BY MT.CACTUS;     
                                 
 SELECT episode, title, cabin, cactus, flowers FROM bobross WHERE cabin = 1 
 UNION  SELECT episode, title, cabin, cactus, flowers FROM bobross WHERE cactus = 1    
