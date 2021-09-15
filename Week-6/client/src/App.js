@@ -18,8 +18,8 @@ function App() {
   }
   return (
     <div id="App">
-      <h2>Click Here To See MOre</h2>
-      <button onClick={getAllData}>Click me!</button>
+      <h2 id= "h2">Click Here To See More</h2>
+      <button id= "button" onClick={getAllData}>Click me!</button>
     </div>
   );
 }

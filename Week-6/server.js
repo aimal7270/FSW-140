@@ -1,49 +1,59 @@
-const express = require("express");
-const mysql = require("mysql");
+const express = require("express")
+const app = express()
+const morgan = require("morgan")
+const mysql = require("mysql")
 
-// connection to mySql database
+//connect to server
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "avengers",
-});
-// catch errors
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log("connected to MySql database");
+  database: "avengers"
+})
+
+app.use(express.json())
+app.use(morgan("dev"))
+
+// db.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log("connected to MySql database");
+// });
+app.use('/', require('./route'))
+
+app.get('/selectTable', (req, res) => {
+  //let myQuery ="CREATE TABLE `avengers1` (`ID` int NOT NULL AUTO_INCREMENT,`title` varchar(75)  DEFAULT NULL, message  VARCHAR(250),PRIMARY KEY (`ID`))";
+  let myQuery = "SELECT * FROM avengers"
+  db.query(myQuery, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    console.log(result, "avengers1 Table Created sucssefully!");
+    res.send(result);
+  });
 });
 
-// select data from existing table
-/*sqlRouter.get('/avengers',(req,res, next) =>{
-    let sql = "SELECT * FROM avengers"
-    db.query(sql, (err, rest) =>{
+app.listen("4000", () => {
+  console.log("Connected to server 4000");
+});
+
+
+/*Create database
+app.get('./createDB', (req, res) =>{
+    let myQuery = " CREATE DATABASE CAPSTONE"
+    db.query(myQuery, (err, result) =>{
         if(err){
-            throw(err,next)
+            throw(err)
         }
-        console.log("result")
-        res.send(result)
+        console.log(result)
+        res.send("CAPSTONE Database Created sucssefully!")
     })
-}); */
+})
 
-// Setup Server express
-const app = express();
+Create table
 
-//Create database
-// app.get('./createDB', (req, res) =>{
-//     let myQuery = " CREATE DATABASE CAPSTONE"
-//     db.query(myQuery, (err, result) =>{
-//         if(err){
-//             throw(err)
-//         }
-//         console.log(result)
-//         res.send("CAPSTONE Database Created sucssefully!")
-//     })
-// })
-
-// Create table
+//Select from dataBase
 app.get("/createTable", (req, res) => {
   let myQuery =
   "CREATE TABLE `avengers1` (`ID` int NOT NULL AUTO_INCREMENT,`title` varchar(75)  DEFAULT NULL, message  VARCHAR(250),PRIMARY KEY (`ID`))";
@@ -125,8 +135,5 @@ app.get("/deleteRow/:avengers1", (req, res) => {
     console.log(result);
     res.send("Deleted Sucessfully");
   });
-});
+}); */
 
-app.listen("4000", () => {
-  console.log("Connected to server 4000");
-});
