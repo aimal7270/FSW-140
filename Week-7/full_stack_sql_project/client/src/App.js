@@ -9,13 +9,13 @@ function App() {
   const [employees, setEmployees] = useState([])
   
   const getEmployees = (() => {
-      axios.get("http://localhost:9000/get")
+      axios.get("http://localhost:4000/get")
           .then(res => setEmployees(res.data))
           .catch(err => console.log(err))
   })
 
   const addEmployee = ((newEmployee) => {
-    axios.post("http://localhost:9000/post", newEmployee)
+    axios.post("http://localhost:4000/post", newEmployee)
         .then(res => {
             setEmployees(prevEmployees => [...prevEmployees, res.data])
         })
@@ -23,7 +23,7 @@ function App() {
   })
 
   const deleteEmployee = ((employeeId) => {
-    axios.delete(`http://localhost:9000/delete/${employeeId}`)
+    axios.delete(`http://localhost:4000/delete/${employeeId}`)
         .then(res => {
             setEmployees(prevEmployees => prevEmployees.filter(employee => employee.EmployeeID !== employeeId))
         })
@@ -31,7 +31,7 @@ function App() {
   })
 
   const editEmployee = ((updates, employeeId) => {
-    axios.put(`http://localhost:9000/edit/${employeeId}`, updates)
+    axios.put(`http://localhost:4000/edit/${employeeId}`, updates)
         .then(res => {
             setEmployees(prevEmployees => prevEmployees.map (employee => employee.EmployeeID !== employeeId ? employee : res.data))
         })
@@ -45,7 +45,7 @@ useEffect(() => {
 
 return (
     <div>
-        <h1 className='title'>New Employee Badge Database</h1>
+        <h1 className='title'> Add New Employee To Database</h1>
         <AddEmployees 
             submit={addEmployee}
             btnText="Add Employee"

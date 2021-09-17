@@ -21,7 +21,7 @@ function Employees(props){
             <p className="badge-text">* <u>Full Name:</u> { EmpFirstName } { EmpLastName }</p>
             <p className="badge-text">* <u>Address:</u> { EmpStreetAddress } { EmpCity } { EmpState } {EmpZipCode}</p>
             <p className="badge-text">*<u> Phone Number:</u> {EmpAreaCode} { EmpPhoneNumber }</p>
-            <p className="badge-text">*<u> Email Address:</u> {EmpEmailAddress} </p>
+            {/* <p className="badge-text">*<u> Email Address:</u> {EmpEmailAddress} </p> */}
             
 
 

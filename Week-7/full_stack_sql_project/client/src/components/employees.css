@@ -22,7 +22,7 @@
     padding: 10px;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: #33415c;
+    background-color: #b1cafc;
     color: white;
     border: 3px solid black;
     border-top-left-radius: 10px;
@@ -34,6 +34,7 @@
     font-size: 22px;
     font-weight: bold;
     padding: 1%;
+    
 }
 .form-container {
     display: grid;
@@ -50,7 +51,7 @@
     margin-right: 5%;
     margin-left: 5%;
     margin-top: 0;
-    background-color: #E0E0E0;
+    background-color: #a1f87e;
     
 }
 
@@ -96,7 +97,7 @@
 }
 
 .delete-btn {
-    width: 20%;
+    width: 30%;
     align-self: center;
     margin-top: 100px;
     border: 2px solid black;

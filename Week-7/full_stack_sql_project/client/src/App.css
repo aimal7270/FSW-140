@@ -1,17 +1,17 @@
 html {
-  background: #001d3d;
+  background: #fdee60;
   font-family: 'Courier New Regular';
 }
 .title:hover{
   font-size: 80px;
-  color: whitesmoke;
+  color: rgb(245, 141, 141);
   text-shadow: 2px 2px 2px #ad2831;
   text-decoration: underline;
 }
 .title {
   text-align: center;
   font-size: 65px;
-  color: whitesmoke;
+  color: rgb(31, 1, 1);
   text-shadow: 2px 2px 2px #ad2831;
   text-decoration: underline;
 }

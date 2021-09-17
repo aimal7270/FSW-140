@@ -86,14 +86,14 @@ function AddEmployees(props){
                     placeholder="Phone Number"
                     className="form-text"
                 />
-                <input
+                {/* <input
                 type="text"
                 name="EmpEmailAddress"
                 value={inputs.EmpEmailAddress}
                 onChange={handleChange}
                 placeholder="Email Address"
                 className="form-text"
-            />
+            /> */}
                 
                 <button className="add-btn">{ props.btnText }</button>
             </form>
